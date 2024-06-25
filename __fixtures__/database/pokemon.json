@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "id_pokemon": "1_ABC123",
+    "name_pokemon": "Pikachu",
+    "nickname_pokemon": "test"
+  },
+  {
+    "id": 1,
+    "id_pokemon": "1_DEF456",
+    "name_pokemon": "Geodude",
+    "nickname_pokemon": "Yeaa"
+  }
+]
