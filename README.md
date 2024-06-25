@@ -18,7 +18,7 @@ MYSQL_CONFIG_DATABASE='PokwemonDB'
 MYSQL_CONFIG_PORT=3306
 
 5. After that, command on the terminal `npm start` to start the service
-   *NOTE: Make sure PORT is different with the local front end
+*NOTE: Make sure the PORT is different with the local front end
 
 ## Unit Testing
 To running unit test, command on the terminal `npm run test`
