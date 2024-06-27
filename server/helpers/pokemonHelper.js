@@ -46,7 +46,6 @@ const catchPokemon = async (id) => {
 
 const updateDataPokemon = async (id, nickname) => {
   try {
-    console.log('id, nickname================', id, nickname);
     const query = 'UPDATE pokemon SET nickname_pokemon = ? WHERE id_pokemon = ?;';
     const data = [nickname, id];
     await DatabaseService.executeQueryDatabase({ query, data, isUpdateData: true });
