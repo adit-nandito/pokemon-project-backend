@@ -1,17 +1,72 @@
 const Axios = require('axios');
 
-const getSpeciesPokemon = async (id) => {
-  let result = null;
-  try {
-    const response = await Axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
-    if (response.status === 200) result = response.data;
+const URL_POKEMON = process.env.URL_POKEMON || 'http://localhost:5000';
+const LIMIT_ALL_POKEMON = process.env.LIMIT_ALL_POKEMON || 1;
 
-    return Promise.resolve(result);
+const getListPokemon = async () => {
+  try {
+    const response = await Axios.get(`${URL_POKEMON}/pokemon?limit=${LIMIT_ALL_POKEMON}`);
+    return Promise.resolve(response.data);
   } catch (err) {
-    return Promise.resolve(result);
+    return Promise.resolve(null);
+  }
+};
+
+const getDetailPokemon = async (index) => {
+  try {
+    const response = await Axios.get(`${URL_POKEMON}/pokemon/${index}`);
+    return Promise.resolve(response.data);
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};
+
+const getSpecificDetailPokemon = async (index) => {
+  try {
+    let response = null;
+    if (Number(index) < 10000) {
+      const result = await Axios.get(`${URL_POKEMON}/pokemon-species/${index}`);
+      response = result.data;
+    }
+
+    return Promise.resolve(response);
+  } catch (err) {
+    return Promise.resolve(null);
+  }
+};
+
+const getSpeciesPokemon = async (id) => {
+  try {
+    const response = await Axios.get(`${URL_POKEMON}/pokemon-species/${id}`);
+    return Promise.resolve(response.data);
+  } catch (err) {
+    return Promise.resolve(null);
+  }
+};
+
+const getWeaknessPokemon = async (name) => {
+  try {
+    const response = await Axios.get(`${URL_POKEMON}/type/${name}`);
+    return Promise.resolve(response.data);
+  } catch (err) {
+    return Promise.resolve(null);
+  }
+};
+
+const getAbilitiesPokemon = async (name) => {
+  try {
+    const response = await Axios.get(`${URL_POKEMON}/ability/${name}`);
+    return Promise.resolve(response.data);
+  } catch (err) {
+    return Promise.resolve(null);
   }
 };
 
 module.exports = {
-  getSpeciesPokemon
+  getListPokemon,
+  getDetailPokemon,
+  getSpecificDetailPokemon,
+  getSpeciesPokemon,
+  getWeaknessPokemon,
+  getAbilitiesPokemon
 };

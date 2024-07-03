@@ -11,6 +11,28 @@ const listPokemon = async (request, reply) => {
     return reply.send(ResponseHandler.errorResponse(err));
   }
 };
+
+const listMyPokemon = async (request, reply) => {
+  try {
+    const response = await PokemonHelper.getListMyPokemon();
+    return reply.send(response);
+  } catch (err) {
+    return reply.send(ResponseHandler.errorResponse(err));
+  }
+};
+
+const pokemonDetail = async (request, reply) => {
+  try {
+    ValidationHelper.detailPokemonValidation(request.query);
+
+    const { name } = request.query;
+    const response = await PokemonHelper.getDetailPokemon(name);
+    return reply.send(response);
+  } catch (err) {
+    return reply.send(ResponseHandler.errorResponse(err));
+  }
+};
+
 const renamePokemon = async (request, reply) => {
   try {
     ValidationHelper.updatePokemonValidation(request.body);
@@ -49,6 +71,8 @@ const deletePokemon = async (request, reply) => {
 };
 
 Router.get('/list-all', listPokemon);
+Router.get('/list-my-pokemon', listMyPokemon);
+Router.get('/detail', pokemonDetail);
 Router.post('/catch', catchPokemon);
 Router.put('/rename', renamePokemon);
 Router.delete('/release', deletePokemon);

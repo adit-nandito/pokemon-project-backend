@@ -1,0 +1,40 @@
+{
+  "abilities": [
+    {
+      "ability": { "name": "overgrow", "url": "https://pokeapi.co/api/v2/ability/65/" },
+      "is_hidden": false,
+      "slot": 1
+    }
+  ],
+  "height": 2,
+  "id": 3,
+  "name": "venusaur",
+  "order": 3,
+  "sprites": {
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png",
+    "other": {
+      "official-artwork": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/1.png"
+      },
+      "showdown": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/1.gif",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/1.gif"
+      }
+    }
+  },
+  "stats": [
+    { "base_stat": 80, "stat": { "name": "hp" } },
+    { "base_stat": 82, "stat": { "name": "attack" } },
+    { "base_stat": 83, "stat": { "name": "defense" } },
+    { "base_stat": 100, "stat": { "name": "special-attack" } },
+    {
+      "base_stat": 100,
+      "stat": { "name": "special-defense" }
+    },
+    { "base_stat": 80, "stat": { "name": "speed" } }
+  ],
+  "types": [{ "slot": 1, "type": { "name": "grass" } }],
+  "weight": 1
+}

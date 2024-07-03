@@ -1,0 +1,16 @@
+{
+  "base_happiness": 50,
+  "capture_rate": 45,
+  "color": { "name": "green" },
+  "flavor_text_entries": [
+    {
+      "flavor_text": "A strange seed was\nplanted on its\nback at birth.\fThe plant sprouts\nand grows with\nthis POKéMON.",
+      "language": { "name": "en" }
+    }
+  ],
+  "habitat": { "name": "grassland" },
+  "id": 1,
+  "name": "bulbasaur",
+  "order": 1,
+  "shape": { "name": "quadruped", "url": "https://pokeapi.co/api/v2/pokemon-shape/8/" }
+}
