@@ -10,10 +10,10 @@ const OFFSET_POKEMON = process.env.OFFSET_POKEMON || 20;
 /*
  *  PRIVATE FUNCTION
  */
-const __getRandomInt = (min, max) => {
-  const minVal = Math.ceil(min);
-  const maxVal = Math.round(max);
-  return Math.round(Math.random() * (maxVal - minVal + 1)) + minVal;
+const __getRandomInt = () => {
+  const minVal = 1;
+  const maxVal = 255;
+  return Math.floor(Math.random() * maxVal) + minVal;
 };
 
 const __generateListPokemon = (listData) => {
@@ -207,7 +207,7 @@ const catchPokemon = async (id) => {
   try {
     let isCatchSuccess = false;
     const result = await APIService.getSpeciesPokemon(id);
-    const randomInt = __getRandomInt(1, 255);
+    const randomInt = __getRandomInt();
     if (result && result.capture_rate > 0 && randomInt <= result.capture_rate) {
       const idPokemon = `${id}_${Moment().format('YYMMDDHHmmss')}`;
       const query = 'INSERT INTO pokemon (id_pokemon, name_pokemon, nickname_pokemon) VALUES (?, ?, ?);';
