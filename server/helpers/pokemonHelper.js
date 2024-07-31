@@ -1,8 +1,12 @@
+const Fs = require('fs');
+const Path = require('path');
 const _ = require('lodash');
 const Moment = require('moment');
 const DatabaseService = require('../database/pokemonDatabase');
 const APIService = require('../services/APIServices');
+const RedisService = require('../services/RedisServices');
 
+const LIST_POKEBALL = Path.join(__dirname, '../assets/listPokeBall.json');
 const LIMIT_CATCHABLE_POKEMON = process.env.LIMIT_CATCHABLE_POKEMON || 1;
 const IMAGE_URL = process.env.IMAGE_URL || 'http://localhost';
 const OFFSET_POKEMON = process.env.OFFSET_POKEMON || 20;
@@ -10,11 +14,16 @@ const OFFSET_POKEMON = process.env.OFFSET_POKEMON || 20;
 /*
  *  PRIVATE FUNCTION
  */
-const __getRandomInt = () => {
-  const minVal = 1;
-  const maxVal = 255;
-  return Math.floor(Math.random() * maxVal) + minVal;
-};
+const __readFromFile = (file) =>
+  new Promise((resolve, reject) => {
+    Fs.readFile(file, (err, content) => {
+      if (err) {
+        return reject(err);
+      }
+
+      return resolve(JSON.parse(content));
+    });
+  });
 
 const __generateListPokemon = (listData) => {
   const listPokemon = listData.map((item) => {
@@ -193,6 +202,93 @@ const getDetailPokemon = async (name) => {
   }
 };
 
+const getPokeball = async () => {
+  try {
+    const randomChance = Math.floor(Math.random() * 100) + 1;
+    // x1
+    let id = 'pokeball';
+    let name = 'Poké Ball';
+    let desc = "A BALL thrown to catch a wild Pokémon. It doesn't affect to wild secret Pokémon";
+    if (randomChance > 30 && randomChance <= 60) {
+      // x2
+      id = 'greatball';
+    } else if (randomChance > 20 && randomChance <= 30) {
+      // x3
+      id = 'ultraball';
+      const randomNumber = Math.floor(Math.random() * 7) + 1;
+      if (randomNumber === 2) {
+        id = 'darkball';
+      } else if (randomNumber === 3) {
+        id = 'illusionball';
+      } else if (randomNumber === 4) {
+        id = 'netball';
+      } else if (randomNumber === 5) {
+        id = 'bumiball';
+      } else if (randomNumber === 6) {
+        id = 'crystalball';
+      } else if (randomNumber === 7) {
+        id = 'steelball';
+      }
+    } else if (randomChance > 10 && randomChance <= 20) {
+      // x4
+      id = 'pokeballsecret';
+      const randomNumber = Math.floor(Math.random() * 10) + 1;
+      if (randomNumber === 2) {
+        id = 'greatballsecret';
+      } else if (randomNumber === 3) {
+        id = 'ultraballsecret';
+      } else if (randomNumber === 4) {
+        id = 'diveball';
+      } else if (randomNumber === 5) {
+        id = 'duskball';
+      } else if (randomNumber === 6) {
+        id = 'lureball';
+      } else if (randomNumber === 7) {
+        id = 'fastball';
+      } else if (randomNumber === 8) {
+        id = 'heavyball';
+      } else if (randomNumber === 9) {
+        id = 'mysteryball';
+      } else if (randomNumber === 10) {
+        id = 'pikachuball';
+      }
+    } else if (randomChance > 1 && randomChance <= 10) {
+      // x5 =85%
+      // Galar, Hisui, Max, Alola, Mega
+      id = 'heavyballsecret';
+      const randomNumber = Math.floor(Math.random() * 7) + 1;
+      if (randomNumber === 2) {
+        id = 'megaball';
+      } else if (randomNumber === 3) {
+        id = 'galarball';
+      } else if (randomNumber === 4) {
+        id = 'alolaball';
+      } else if (randomNumber === 5) {
+        id = 'hisuiball';
+      } else if (randomNumber === 6) {
+        id = 'beastball';
+      } else if (randomNumber === 7) {
+        id = 'gmaxball';
+      }
+    } else if (randomChance <= 1) {
+      // 100%
+      id = 'masterball';
+    }
+    const listBall = await __readFromFile(LIST_POKEBALL);
+    const selectedBall = listBall.ball.find((item) => item.id === id);
+    if (selectedBall) {
+      name = selectedBall.name;
+      desc = selectedBall.desc;
+    }
+    const data = await RedisService.hgetAllDataRedis('listBall');
+    const value = data[id] ? Number(data[id]) + 1 : 1;
+    await RedisService.hsetDataRedis('listBall', [id, value]);
+    return Promise.resolve({ id, name, desc });
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};
+
 const getListMyPokemon = async () => {
   try {
     const query = 'SELECT * FROM pokemon;';
@@ -207,7 +303,9 @@ const catchPokemon = async (id) => {
   try {
     let isCatchSuccess = false;
     const result = await APIService.getSpeciesPokemon(id);
-    const randomInt = __getRandomInt();
+    const minVal = 1;
+    const maxVal = 255;
+    const randomInt = Math.floor(Math.random() * maxVal) + minVal;
     if (result && result.capture_rate > 0 && randomInt <= result.capture_rate) {
       const idPokemon = `${id}_${Moment().format('YYMMDDHHmmss')}`;
       const query = 'INSERT INTO pokemon (id_pokemon, name_pokemon, nickname_pokemon) VALUES (?, ?, ?);';
@@ -250,6 +348,7 @@ module.exports = {
   getListPokemon,
   getListMyPokemon,
   getDetailPokemon,
+  getPokeball,
   catchPokemon,
   updateDataPokemon,
   deleteDataPokemon

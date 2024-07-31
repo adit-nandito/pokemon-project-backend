@@ -1,0 +1,134 @@
+{
+  "ball": [
+    {
+      "id": "greatball",
+      "name": "Great Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 3×. It doesn't affect to wild secret Pokémon."
+    },
+    {
+      "id": "ultraball",
+      "name": "Ultra Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 4×. It doesn't affect to wild secret Pokémon."
+    },
+    {
+      "id": "netball",
+      "name": "Net Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 4× for <b>Bug</b> or <b>Water Pokémon</b>. Otherwise, it has a catch rate of 1×. It doesn't affect to wild secret Pokémon."
+    },
+    {
+      "id": "darkball",
+      "name": "Dark Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 4× for <b>Dark Pokémon</b>. Otherwise, it has a catch rate of 1×. It doesn't affect to wild secret Pokémon."
+    },
+    {
+      "id": "illusionball",
+      "name": "Illusion Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 4× for <b>Ghost</b> or <b>Psychic Pokémon</b>. Otherwise, it has a catch rate of 1×. It doesn't affect to wild secret Pokémon."
+    },
+    {
+      "id": "bumiball",
+      "name": "Bumi Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 4× for <b>Rock</b> or <b>Ground Pokémon</b>. Otherwise, it has a catch rate of 1×. It doesn't affect to wild secret Pokémon."
+    },
+    {
+      "id": "crystalball",
+      "name": "Crystal Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 4× for <b>Ice Pokémon</b>. Otherwise, it has a catch rate of 1×. It doesn't affect to wild secret Pokémon."
+    },
+    {
+      "id": "steelball",
+      "name": "Steel Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 4× for <b>Steel Pokémon</b>. Otherwise, it has a catch rate of 1×. It doesn't affect to wild secret Pokémon."
+    },
+    {
+      "id": "mysteryball",
+      "name": "Mystery Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. It has random successful rate. It doesn't affect to wild secret Pokémon."
+    },
+    {
+      "id": "pokeballsecret",
+      "name": "Poké Ball Secret",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 35% for secret Pokémon. It doesn't affect to wild non-secret Pokémon."
+    },
+    {
+      "id": "greatballsecret",
+      "name": "Secret Ball Secret",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 50% for secret Pokémon. It doesn't affect to wild non-secret Pokémon."
+    },
+    {
+      "id": "ultraballsecret",
+      "name": "Ultra Ball Secret",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 65% for secret Pokémon. It doesn't affect to wild non-secret Pokémon."
+    },
+    {
+      "id": "lureball",
+      "name": "Lure Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 5× for Pokémon that live in water-edge. Otherwise, it has a catch rate of 1×. It doesn't affect to wild secret Pokémon."
+    },
+    {
+      "id": "duskball",
+      "name": "Dusk Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 5× for Pokémon that live in cave. Otherwise, it has a catch rate of 1×. It doesn't affect to wild secret Pokémon."
+    },
+    {
+      "id": "diveball",
+      "name": "Dive Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 5× for Pokémon that live in sea. Otherwise, it has a catch rate of 1×. It doesn't affect to wild secret Pokémon."
+    },
+    {
+      "id": "fastball",
+      "name": "Fast Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 5× for Pokémon with 100 or greater base speed. Otherwise, it has a catch rate of 1×. It doesn't affect to wild secret Pokémon."
+    },
+    {
+      "id": "heavyball",
+      "name": "Heavy Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. If the wild Pokémon weighs 200 kg or more, success rate is 3×. If the wild Pokemon weighs 300 kg or more, success rate is 4×. If the wild Pokemon weighs 400 kg or more, success rate is 5×. Otherwise, it has a catch rate of 1×. It doesn't affect to wild secret Pokémon."
+    },
+    {
+      "id": "pikaball",
+      "name": "Pika Ball",
+      "desc": "A BALL thrown to catch a <b>Pikachu</b>. Success rate is 100%. It doesn't affect to anything Pokémon except <b>Pikachu</b>."
+    },
+    {
+      "id": "heavyballsecret",
+      "name": "Heavy Ball Secret",
+      "desc": "A BALL thrown to catch a wild Pokémon. If the wild secret Pokémon weighs 200 kg or more, success rate is 45%. If the wild Pokemon weighs 300 kg or more, success rate is 60%. If the wild Pokemon weighs 400 kg or more, success rate is 75%. It doesn't affect to wild non-secret Pokémon."
+    },
+    {
+      "id": "megastoneball",
+      "name": "Mega Stone Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 85% for <b>Mega Evolve Pokémon</b> and only 1% for all other secret Pokémon. It doesn't affect to wild non-secret Pokémon."
+    },
+    {
+      "id": "galarball",
+      "name": "Galar Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 85% for <b>Galar Pokémon</b> and only 1% for all other secret Pokémon. It doesn't affect to wild non-secret Pokémon."
+    },
+    {
+      "id": "alolaball",
+      "name": "Alola Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 85% for <b>Alola Pokémon</b> and only 1% for all other secret Pokémon. It doesn't affect to wild non-secret Pokémon."
+    },
+    {
+      "id": "hisuiball",
+      "name": "Hisui Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 85% for <b>Hisui Pokémon</b> and only 1% for all other secret Pokémon. It doesn't affect to wild non-secret Pokémon."
+    },
+    {
+      "id": "beastball",
+      "name": "Beast Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 85% for <b>Ultra Beast Pokémon (Nihilego, Buzzwole, Pheromosa, Xurkitree, Celesteela, Kartana, Guzzlord, Poipole, Naganadel, Stakataka, Blacephalon)</b> and only 1% for all other secret Pokémon. It doesn't affect to wild non-secret Pokémon."
+    },
+    {
+      "id": "gmaxball",
+      "name": "G-Max Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon. Success rate is 85% for <b>Gigantamax Pokémon</b> and only 1% for all other secret Pokémon. It doesn't affect to wild non-secret Pokémon."
+    },
+    {
+      "id": "masterball",
+      "name": "Master Ball",
+      "desc": "A BALL thrown to catch a wild Pokémon without fail."
+    }
+  ]
+}

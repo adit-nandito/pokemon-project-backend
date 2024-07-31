@@ -33,6 +33,15 @@ const pokemonDetail = async (request, reply) => {
   }
 };
 
+const pokeball = async (request, reply) => {
+  try {
+    const response = await PokemonHelper.getPokeball();
+    return reply.send(response);
+  } catch (err) {
+    return reply.send(ResponseHandler.errorResponse(err));
+  }
+};
+
 const renamePokemon = async (request, reply) => {
   try {
     ValidationHelper.updatePokemonValidation(request.body);
@@ -73,6 +82,7 @@ const deletePokemon = async (request, reply) => {
 Router.get('/list-all', listPokemon);
 Router.get('/list-my-pokemon', listMyPokemon);
 Router.get('/detail', pokemonDetail);
+Router.get('/pokeball', pokeball);
 Router.post('/catch', catchPokemon);
 Router.put('/rename', renamePokemon);
 Router.delete('/release', deletePokemon);
